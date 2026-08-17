@@ -1,6 +1,9 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>((int)(nums.length / 0.75f) + 1);
+        if (nums == null || nums.length < 2) {
+            throw new IllegalArgumentException("Array must contain at least two elements.");
+        }
+        Map<Integer, Integer> map = new HashMap<>(nums.length, 1.0f);
         for (int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];
             if (map.containsKey(complement)) {
@@ -8,6 +11,6 @@ class Solution {
             }
             map.put(nums[i], i);
         }
-        return new int[0];
+        throw new IllegalArgumentException("No two sum solution exists.");
     }
 }
